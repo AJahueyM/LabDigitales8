@@ -17,7 +17,7 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
-set_param xicom.use_bs_reader 1
+set_param synth.incrementalSynthesisCache C:/Users/A01039835/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-7584-MTYA7435-01/incrSyn
 set_msg_config -id {Synth 8-256} -limit 10000
 set_msg_config -id {Synth 8-638} -limit 10000
 create_project -in_memory -part xc7a100tcsg324-1
@@ -32,9 +32,8 @@ set_property target_language Verilog [current_project]
 set_property ip_output_repo c:/Users/A01039835/Documents/GitHub/LabDigitales8/LabDigitales8.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 read_vhdl -library xil_defaultlib {
-  C:/Users/A01039835/Documents/GitHub/LabDigitales8/LabDigitales8.srcs/sources_1/new/main_pwm.vhd
   C:/Users/A01039835/Documents/GitHub/LabDigitales8/LabDigitales8.srcs/sources_1/new/sSegDisplay.vhd
-  C:/Users/A01039835/Documents/GitHub/LabDigitales8/LabDigitales8.srcs/sources_1/new/test.vhd
+  C:/Users/A01039835/Documents/GitHub/LabDigitales8/LabDigitales8.srcs/sources_1/new/main_pwm.vhd
 }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -50,12 +49,12 @@ set_property used_in_implementation false [get_files C:/Users/A01039835/Document
 set_param ips.enableIPCacheLiteLoad 0
 close [open __synthesis_is_running__ w]
 
-synth_design -top test -part xc7a100tcsg324-1
+synth_design -top main_pwm -part xc7a100tcsg324-1
 
 
 # disable binary constraint mode for synth run checkpoints
 set_param constraints.enableBinaryConstraints false
-write_checkpoint -force -noxdef test.dcp
-create_report "synth_1_synth_report_utilization_0" "report_utilization -file test_utilization_synth.rpt -pb test_utilization_synth.pb"
+write_checkpoint -force -noxdef main_pwm.dcp
+create_report "synth_1_synth_report_utilization_0" "report_utilization -file main_pwm_utilization_synth.rpt -pb main_pwm_utilization_synth.pb"
 file delete __synthesis_is_running__
 close [open __synthesis_is_complete__ w]

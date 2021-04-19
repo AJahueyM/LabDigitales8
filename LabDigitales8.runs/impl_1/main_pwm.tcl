@@ -67,7 +67,7 @@ start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
-  set_param xicom.use_bs_reader 1
+  set_param synth.incrementalSynthesisCache C:/Users/A01039835/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-7584-MTYA7435-01/incrSyn
   create_project -in_memory -part xc7a100tcsg324-1
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
@@ -75,9 +75,9 @@ set rc [catch {
   set_property parent.project_path C:/Users/A01039835/Documents/GitHub/LabDigitales8/LabDigitales8.xpr [current_project]
   set_property ip_output_repo C:/Users/A01039835/Documents/GitHub/LabDigitales8/LabDigitales8.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
-  add_files -quiet C:/Users/A01039835/Documents/GitHub/LabDigitales8/LabDigitales8.runs/synth_1/test.dcp
+  add_files -quiet C:/Users/A01039835/Documents/GitHub/LabDigitales8/LabDigitales8.runs/synth_1/main_pwm.dcp
   read_xdc C:/Users/A01039835/Documents/GitHub/LabDigitales8/LabDigitales8.srcs/constrs_1/new/pwm.xdc
-  link_design -top test -part xc7a100tcsg324-1
+  link_design -top main_pwm -part xc7a100tcsg324-1
   close_msg_db -file init_design.pb
 } RESULT]
 if {$rc} {
@@ -93,8 +93,8 @@ set ACTIVE_STEP opt_design
 set rc [catch {
   create_msg_db opt_design.pb
   opt_design 
-  write_checkpoint -force test_opt.dcp
-  create_report "impl_1_opt_report_drc_0" "report_drc -file test_drc_opted.rpt -pb test_drc_opted.pb -rpx test_drc_opted.rpx"
+  write_checkpoint -force main_pwm_opt.dcp
+  create_report "impl_1_opt_report_drc_0" "report_drc -file main_pwm_drc_opted.rpt -pb main_pwm_drc_opted.pb -rpx main_pwm_drc_opted.rpx"
   close_msg_db -file opt_design.pb
 } RESULT]
 if {$rc} {
@@ -113,10 +113,10 @@ set rc [catch {
     implement_debug_core 
   } 
   place_design 
-  write_checkpoint -force test_placed.dcp
-  create_report "impl_1_place_report_io_0" "report_io -file test_io_placed.rpt"
-  create_report "impl_1_place_report_utilization_0" "report_utilization -file test_utilization_placed.rpt -pb test_utilization_placed.pb"
-  create_report "impl_1_place_report_control_sets_0" "report_control_sets -verbose -file test_control_sets_placed.rpt"
+  write_checkpoint -force main_pwm_placed.dcp
+  create_report "impl_1_place_report_io_0" "report_io -file main_pwm_io_placed.rpt"
+  create_report "impl_1_place_report_utilization_0" "report_utilization -file main_pwm_utilization_placed.rpt -pb main_pwm_utilization_placed.pb"
+  create_report "impl_1_place_report_control_sets_0" "report_control_sets -verbose -file main_pwm_control_sets_placed.rpt"
   close_msg_db -file place_design.pb
 } RESULT]
 if {$rc} {
@@ -132,19 +132,19 @@ set ACTIVE_STEP route_design
 set rc [catch {
   create_msg_db route_design.pb
   route_design 
-  write_checkpoint -force test_routed.dcp
-  create_report "impl_1_route_report_drc_0" "report_drc -file test_drc_routed.rpt -pb test_drc_routed.pb -rpx test_drc_routed.rpx"
-  create_report "impl_1_route_report_methodology_0" "report_methodology -file test_methodology_drc_routed.rpt -pb test_methodology_drc_routed.pb -rpx test_methodology_drc_routed.rpx"
-  create_report "impl_1_route_report_power_0" "report_power -file test_power_routed.rpt -pb test_power_summary_routed.pb -rpx test_power_routed.rpx"
-  create_report "impl_1_route_report_route_status_0" "report_route_status -file test_route_status.rpt -pb test_route_status.pb"
-  create_report "impl_1_route_report_timing_summary_0" "report_timing_summary -max_paths 10 -file test_timing_summary_routed.rpt -pb test_timing_summary_routed.pb -rpx test_timing_summary_routed.rpx -warn_on_violation "
-  create_report "impl_1_route_report_incremental_reuse_0" "report_incremental_reuse -file test_incremental_reuse_routed.rpt"
-  create_report "impl_1_route_report_clock_utilization_0" "report_clock_utilization -file test_clock_utilization_routed.rpt"
-  create_report "impl_1_route_report_bus_skew_0" "report_bus_skew -warn_on_violation -file test_bus_skew_routed.rpt -pb test_bus_skew_routed.pb -rpx test_bus_skew_routed.rpx"
+  write_checkpoint -force main_pwm_routed.dcp
+  create_report "impl_1_route_report_drc_0" "report_drc -file main_pwm_drc_routed.rpt -pb main_pwm_drc_routed.pb -rpx main_pwm_drc_routed.rpx"
+  create_report "impl_1_route_report_methodology_0" "report_methodology -file main_pwm_methodology_drc_routed.rpt -pb main_pwm_methodology_drc_routed.pb -rpx main_pwm_methodology_drc_routed.rpx"
+  create_report "impl_1_route_report_power_0" "report_power -file main_pwm_power_routed.rpt -pb main_pwm_power_summary_routed.pb -rpx main_pwm_power_routed.rpx"
+  create_report "impl_1_route_report_route_status_0" "report_route_status -file main_pwm_route_status.rpt -pb main_pwm_route_status.pb"
+  create_report "impl_1_route_report_timing_summary_0" "report_timing_summary -max_paths 10 -file main_pwm_timing_summary_routed.rpt -pb main_pwm_timing_summary_routed.pb -rpx main_pwm_timing_summary_routed.rpx -warn_on_violation "
+  create_report "impl_1_route_report_incremental_reuse_0" "report_incremental_reuse -file main_pwm_incremental_reuse_routed.rpt"
+  create_report "impl_1_route_report_clock_utilization_0" "report_clock_utilization -file main_pwm_clock_utilization_routed.rpt"
+  create_report "impl_1_route_report_bus_skew_0" "report_bus_skew -warn_on_violation -file main_pwm_bus_skew_routed.rpt -pb main_pwm_bus_skew_routed.pb -rpx main_pwm_bus_skew_routed.rpx"
   close_msg_db -file route_design.pb
 } RESULT]
 if {$rc} {
-  write_checkpoint -force test_routed_error.dcp
+  write_checkpoint -force main_pwm_routed_error.dcp
   step_failed route_design
   return -code error $RESULT
 } else {
@@ -156,10 +156,10 @@ start_step write_bitstream
 set ACTIVE_STEP write_bitstream
 set rc [catch {
   create_msg_db write_bitstream.pb
-  catch { write_mem_info -force test.mmi }
-  write_bitstream -force test.bit 
-  catch {write_debug_probes -quiet -force test}
-  catch {file copy -force test.ltx debug_nets.ltx}
+  catch { write_mem_info -force main_pwm.mmi }
+  write_bitstream -force main_pwm.bit 
+  catch {write_debug_probes -quiet -force main_pwm}
+  catch {file copy -force main_pwm.ltx debug_nets.ltx}
   close_msg_db -file write_bitstream.pb
 } RESULT]
 if {$rc} {

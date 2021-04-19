@@ -1,14 +1,14 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
----------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-| Date         : Thu Apr 15 16:10:30 2021
+| Date         : Mon Apr 19 14:58:22 2021
 | Host         : MTYA7435-01 running 64-bit major release  (build 9200)
-| Command      : report_drc -file test_drc_opted.rpt -pb test_drc_opted.pb -rpx test_drc_opted.rpx
-| Design       : test
+| Command      : report_drc -file main_pwm_drc_opted.rpt -pb main_pwm_drc_opted.pb -rpx main_pwm_drc_opted.rpx
+| Design       : main_pwm
 | Device       : xc7a100tcsg324-1
 | Speed File   : -1
 | Design State : Synthesized
----------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------
 
 Report DRC
 

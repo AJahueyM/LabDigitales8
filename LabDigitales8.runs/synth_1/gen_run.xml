@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1618520958">
-  <File Type="PA-TCL" Name="test.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="test_drc_synth.rpt"/>
-  <File Type="REPORTS-TCL" Name="test_reports.tcl"/>
-  <File Type="RDS-RDS" Name="test.vds"/>
-  <File Type="RDS-UTIL" Name="test_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="test_utilization_synth.pb"/>
-  <File Type="RDS-DCP" Name="test.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="test_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="test_timing_summary_synth.pb"/>
+<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1618862230">
+  <File Type="PA-TCL" Name="main_pwm.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="main_pwm_drc_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="main_pwm_reports.tcl"/>
+  <File Type="RDS-RDS" Name="main_pwm.vds"/>
+  <File Type="RDS-UTIL" Name="main_pwm_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="main_pwm_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="main_pwm.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="main_pwm_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="main_pwm_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
-    <File Path="$PSRCDIR/sources_1/new/main_pwm.vhd">
+    <File Path="$PSRCDIR/sources_1/new/sSegDisplay.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/sSegDisplay.vhd">
+    <File Path="$PSRCDIR/sources_1/new/main_pwm.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -25,14 +25,14 @@
     </File>
     <File Path="$PSRCDIR/sources_1/new/test.vhd">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="test"/>
-      <Option Name="TopAutoSet" Val="TRUE"/>
+      <Option Name="TopModule" Val="main_pwm"/>
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
@@ -49,9 +49,7 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018">
-      <Desc>Vivado Synthesis Defaults</Desc>
-    </StratHandle>
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018"/>
     <Step Id="synth_design"/>
   </Strategy>
 </GenRun>

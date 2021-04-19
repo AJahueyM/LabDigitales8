@@ -1,13 +1,13 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-| Date         : Thu Apr 15 16:11:03 2021
+| Date         : Mon Apr 19 14:58:55 2021
 | Host         : MTYA7435-01 running 64-bit major release  (build 9200)
-| Command      : report_timing_summary -max_paths 10 -file test_timing_summary_routed.rpt -pb test_timing_summary_routed.pb -rpx test_timing_summary_routed.rpx -warn_on_violation
-| Design       : test
+| Command      : report_timing_summary -max_paths 10 -file main_pwm_timing_summary_routed.rpt -pb main_pwm_timing_summary_routed.pb -rpx main_pwm_timing_summary_routed.rpx -warn_on_violation
+| Design       : main_pwm
 | Device       : 7a100t-csg324
 | Speed File   : -1  PRODUCTION 1.22 2018-03-21
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Timing Summary Report
 
@@ -52,9 +52,9 @@ Table of Contents
 
 1. checking no_clock
 --------------------
- There are 54 register/latch pins with no clock driven by root clock pin: clk (HIGH)
+ There are 28 register/latch pins with no clock driven by root clock pin: btn_in (HIGH)
 
- There are 28 register/latch pins with no clock driven by root clock pin: btn_reg/Q (HIGH)
+ There are 41 register/latch pins with no clock driven by root clock pin: clk100m (HIGH)
 
 
 2. checking constant_clock
@@ -69,7 +69,7 @@ Table of Contents
 
 4. checking unconstrained_internal_endpoints
 --------------------------------------------
- There are 110 pins that are not constrained for maximum delay. (HIGH)
+ There are 98 pins that are not constrained for maximum delay. (HIGH)
 
  There are 0 pins that are not constrained for maximum delay due to constant clock.
 
@@ -83,7 +83,7 @@ Table of Contents
 
 6. checking no_output_delay
 ---------------------------
- There are 15 ports with no output delay specified. (HIGH)
+ There are 16 ports with no output delay specified. (HIGH)
 
  There are 0 ports with no output delay but user has a false path constraint
 
